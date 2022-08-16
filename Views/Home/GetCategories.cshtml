@@ -1,0 +1,105 @@
+﻿@model IEnumerable<vizem.Entity.Category>
+@{
+    var selectedCategory = Url.RequestContext.RouteData.Values["id"];
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>İzafiyet Ürünler</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/templatemo_546_sixteen_clothing/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--
+
+    TemplateMo 546 Sixteen Clothing
+
+    https://templatemo.com/tm-546-sixteen-clothing
+
+    -->
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="~/templatemo_546_sixteen_clothing/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="~/templatemo_546_sixteen_clothing/assets/css/templatemo-sixteen.css">
+    <link rel="stylesheet" href="~/templatemo_546_sixteen_clothing/assets/css/owl.css">
+
+</head>
+
+<body>
+
+    <div class="products">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    
+
+                    <ul class="list-group">
+
+                        <a href="/Home/List" class="list-group-item">
+                            <p style="color:#eb6200;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-weight:bold;font-size:110%">
+                                <i class="" aria-hidden="true"></i>
+                                Tüm Kategoriler
+                            </p>
+
+
+
+                            @foreach (var item in Model)
+                            {
+                                if (selectedCategory != null)
+                                {
+                                    if (item.Id == int.Parse(selectedCategory.ToString()))
+                                    {
+
+                        <a href="/Home/List/@item.Id" class="list-group-item active">
+                            <p style="color: #eb6200; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: normal; font-size: 100% ">
+                                <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                                
+                                @item.Name
+                                </p>
+                        </a>
+                        
+
+                                    }
+                                    else
+                                    {
+
+                        <a href="/Home/List/@item.Id" class="list-group-item ">
+                            <p style="color: #eb6200; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: normal; font-size: 100%">
+                                <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                                @item.Name
+                                </p>
+                        </a>
+
+                                    }
+
+                                }
+                                else
+                                {
+
+                        <a href="/Home/List/@item.Id" class="list-group-item ">
+                            <p style="color: #eb6200; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: normal; font-size: 100%">
+                                <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                                @item.Name
+                                </p>
+                        </a>
+
+                                }
+
+                            }
+                    </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+    
+
+
+</body>
+</html>

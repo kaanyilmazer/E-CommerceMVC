@@ -1,0 +1,46 @@
+﻿@using vizem.Models;
+@model IEnumerable<ProductModel>
+
+<link rel="stylesheet" href="~/fontawesome-free-6.1.1-desktop/metadata/icons.json">
+
+
+<div class="row grid">
+
+
+
+    @foreach (var urun in Model)
+    {
+
+        <div class="col-md-15" style="width: fit-content ">
+            
+                
+                    <div class="col-lg-4 col-md-15 all des">
+                        <div class="product-item">
+
+
+
+                            <a href="#"><img src="/Upload/@urun.Image" alt="@urun.Name"></a>
+                            <div class="down-content">
+                                <a href="/Home/Details/@urun.Id"> @urun.Name</a>
+                                <p>
+
+                                <p style="color:#eb6200;font-family:tahoma;font-weight:bold;font-size:125%">
+                                    <i class="fa fa-try" aria-hidden="true"></i>
+                                    @urun.Price
+                                </p>
+
+                                <p>@urun.Description</p>
+
+                                <a href="/Home/Details/@urun.Id" class="btn btn-default btn-xs">
+                                    <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                                    Ürünü incele
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+        
+    }
+
+    </div>

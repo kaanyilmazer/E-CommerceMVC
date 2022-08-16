@@ -1,0 +1,140 @@
+﻿@using vizem.Entity
+
+@model  Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<br />
+<br />
+<br />
+<div id="product-details" class="container pb-5">
+    <div class="row">
+
+        <div class="col-md-6">
+            <img src="~/Upload/@Model.Image" class="img-fluid rounded ">
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>@Model.Name</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    @if (Model.IsApproved)
+                    {
+                        <span class="badge badge-primary">Stokta</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">Stokta Yok</span>
+                    }
+
+                    <span class="product-number">#123542</span>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <div id="description">
+
+
+                        @Model.Description
+
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="badge badge-success">30</span>
+                </div>
+                <div id="write-review" class="col-md-4">
+                    <a href="#">
+                        Yorum Ekle
+                    </a>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <h4> <span>  @Model.Price TL</span> </h4>
+</div> 
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+
+                    @using (Html.BeginForm("AddToCart", "Cart"))
+                    {
+                        @Html.HiddenFor(i => i.Id)
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                            Sepete Ekle
+
+
+                        </button>
+                    }
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+
+                            @using (Html.BeginForm("AddToCart", "Cart"))
+                            {
+                                @Html.HiddenFor(i => i.Id)
+
+
+                                <button type="submit" class="alert" style="color:darkred">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                    Favori<3
+
+                                </button>
+                            }
+
+                            </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="bd-example bd-example-tabs">
+                <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">Açıklama</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-payment-tab" data-toggle="pill" href="#pills-payment" role="tab" aria-controls="pills-payment" aria-expanded="true">Ödeme Yöntemleri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-comment-tab" data-toggle="pill" href="#pills-comment" role="tab" aria-controls="pills-comment" aria-expanded="true">Yorumlar</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+                        <p>Sitemiz Üzerinden Yapacağınız Her 100TL Üzeri Alışverişte Kargolarınız Bedava!!</p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
+                        <p>Kart ve Havale.</p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">
+                        <p>
+                            KaanYılmazer : Bu Siteden Alışveriş Yapmak Harika!!! <br />
+                            MehmetAkça : Maalesef Beğenmedim... <br />
+                            Recepİvedik : Mağaza Sahibi çok ilgiliydi bohohoöyt
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
